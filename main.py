@@ -60,7 +60,7 @@ else:
 
 
 if abs(percent_changed) > 5:
-    message += f"❗\n\n- **Headline**: `{news_list["Headline"]}`\n\n- **Article**: {news_list["Link"]}\n\n- **Publish Date**: {news_list["Publish Date"]}"
+    message += f"❗\n\n- **Headline**: `{news_list[0]["Headline"]}`\n\n- **Article**: {news_list[0]["Link"]}\n\n- **Publish Date**: {news_list[0]["Publish Date"]}"
 
 
 discord_channel_url = "https://discord.com/api/v9/channels/1258325947116163134/messages"
