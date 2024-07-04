@@ -47,12 +47,17 @@ news_list = [
 
 message = f"> **Daily ₿itcoin Price Report** - {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
 
-if percent_changed > 0: 
+if percent_changed > 0 and abs(percent_changed) > 5: 
+    message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**   ❗❗❗\n\n- Today's price: **${closing_prices_list[0]}**\n\n- Yesterday's price: **${closing_prices_list[1]}**"
+elif percent_changed < 0 and abs(percent_changed) > 5: 
+    message += f"🟥   **{percent_changed}%\t|\t-${abs(amount_changed)}**   ❗❗❗\n\n- Today's price: **${closing_prices_list[0]}**\n\n- Yesterday's price: **${closing_prices_list[1]}**"
+elif percent_changed > 0:
     message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**\n\n- Today's price: **${closing_prices_list[0]}**\n\n- Yesterday's price: **${closing_prices_list[1]}**"
 elif percent_changed < 0:
     message += f"🟥   **{percent_changed}%\t|\t-${abs(amount_changed)}**\n\n- Today's price: **${closing_prices_list[0]}**\n\n- Yesterday's price: **${closing_prices_list[1]}**"
 else:
     message += f"⬜   **{int(percent_changed)}%**"
+
 
 if abs(percent_changed) > 5:
     message += f"❗\n\n- **Headline**: `{news_list["Headline"]}`\n\n- **Article**: {news_list["Link"]}\n\n- **Publish Date**: {news_list["Publish Date"]}"
