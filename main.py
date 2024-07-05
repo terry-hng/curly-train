@@ -20,7 +20,7 @@ last_price = round(float(price_data["lastPrice"]),3)
 amount_changed = float(price_data["priceChange"])
 percent_changed = float(price_data["priceChangePercent"])
 
-message = f"> **Daily NEAR Price Report** - {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
+message = f"> **Daily ₿itcoin Price Report** - {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
 
 if percent_changed > 0 and abs(percent_changed) > 5: 
     message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**   ❗❗❗\n\n- Current price: **${last_price}**\n\n- Yesterday's price: **${previous_close_price}**"
@@ -33,7 +33,7 @@ elif percent_changed < 0:
 else:
     message += f"⬜   **{int(percent_changed)}%**"
 
-discord_channel_url = "https://discord.com/api/v9/channels/1258664483648307230/messages"
+discord_channel_url = "https://discord.com/api/v9/channels/1258325947116163134/messages"
 headers = {
     "Authorization": os.environ.get("DISCORD_AUTH_KEY")
 }  # auth key needed to send messages through discord
