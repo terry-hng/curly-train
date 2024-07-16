@@ -15,9 +15,9 @@ response.raise_for_status()
 
 price_data = response.json()
 
-previous_close_price = round(float(price_data["prevClosePrice"]),3)
-last_price = round(float(price_data["lastPrice"]),3)
-amount_changed = float(price_data["priceChange"])
+previous_close_price = format(round(float(price_data["prevClosePrice"]),3), ",")
+last_price = format(round(float(price_data["lastPrice"]),3), ",")
+amount_changed = format(float(price_data["priceChange"]), ",")
 percent_changed = float(price_data["priceChangePercent"])
 
 message = f"> **Daily ₿itcoin Price Report** - {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
