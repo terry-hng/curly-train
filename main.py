@@ -25,11 +25,11 @@ message = f"> **Daily ₿itcoin Price Report** - {dt.datetime.now(pytz.timezone(
 if percent_changed > 0 and abs(percent_changed) > 5: 
     message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**   ❗❗❗\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
 elif percent_changed < 0 and abs(percent_changed) > 5: 
-    message += f"🟥   **{percent_changed}%\t|\t-${abs(amount_changed)}**   ❗❗❗\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
+    message += f"🟥   **{percent_changed}%\t|\t${amount_changed}**   ❗❗❗\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
 elif percent_changed > 0:
     message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
 elif percent_changed < 0:
-    message += f"🟥   **{percent_changed}%\t|\t-${abs(amount_changed)}**\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
+    message += f"🟥   **{percent_changed}%\t|\t${amount_changed}**\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
 else:
     message += f"⬜   **{int(percent_changed)}%**"
 
