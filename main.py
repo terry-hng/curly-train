@@ -22,9 +22,9 @@ percent_changed = float(price_data["priceChangePercent"])
 
 message = f"> **Daily ₿itcoin Price Report** - {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
 
-if percent_changed > 0 and abs(percent_changed) > 5: 
+if percent_changed > 0 and abs(percent_changed) > 10: 
     message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**   ❗❗❗\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
-elif percent_changed < 0 and abs(percent_changed) > 5: 
+elif percent_changed < 0 and abs(percent_changed) > 10: 
     message += f"🟥   **{percent_changed}%\t|\t-${amount_changed.replace("-", "")}**   ❗❗❗\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
 elif percent_changed > 0:
     message += f"🟩   **+{percent_changed}%**\t|\t**+${amount_changed}**\n\n- Current price: **${last_price}**\n\n- Yesterday's close: **${previous_close_price}**"
