@@ -38,6 +38,6 @@ headers = {
     "Authorization": os.environ.get("DISCORD_AUTH_KEY")
 }  # auth key needed to send messages through discord
 
-payload = {"content": message + "\n\n-----------------------------------\n"}
+payload = {"content": message}
 
 requests.post(discord_channel_url, payload, headers=headers)
